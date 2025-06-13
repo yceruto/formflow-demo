@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Yceruto\FormFlowBundle\Form\Flow\FormFlowInterface;
 
 /**
- * Ensures the flow step is created `$v->getForm()`,
+ * Ensures the flow step is created `$v->getStepForm()`,
  * and the status code is 303 until the flow is finished.
  */
 trait TurboFlowTrait
