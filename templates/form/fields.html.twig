@@ -1,0 +1,30 @@
+{% use 'bootstrap_5_layout.html.twig' %}
+
+{% block member_row %}
+    <div class="mb-3">
+        <div class="d-flex flex-row gap-2">
+            {{ form_widget(form.name) }}
+            {{ form_widget(form.role) }}
+            <button type="submit" class="btn btn-light d-flex align-items-center" name="{{ form.remove.vars.full_name }}" value="{{ form.vars.name }}" formnovalidate="formnovalidate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block form_flow_action_widget %}
+    {% if icon is defined %}
+        {% set attr = attr|merge({class: attr.class ~ ' d-flex align-items-center gap-2'}) %}
+        {% set label_html = true %}
+        {% set label_text = label|default(name|humanize) %}
+        {%- set label -%}
+            {{ icon|raw }}
+            {%- if label_text is defined -%}
+                {{- label_text -}}
+            {%- endif -%}
+        {%- endset -%}
+    {% endif %}
+    {{ block('submit_widget') }}
+{% endblock %}
+
+

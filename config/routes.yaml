@@ -1,0 +1,9 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+example_controllers:
+    resource: ../src/Demo/*/Controller/*Controller.php
+    type: attribute

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}FormFlow Demo!{% endblock %}</title>
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+        <svg height="12" width="12" xmlns="http://www.w3.org/2000/svg" fill="#212529" class="navbar-corner-left"><path d="M 0 -1 L 0 12 A 12 12, 0, 0, 1, 12 0 L 12 -1 Z" class="⚙ as-1k ⚙jk0e1w"></path></svg>
+        <svg height="12" width="12" xmlns="http://www.w3.org/2000/svg" fill="#212529" class="navbar-corner-right"><path d="M 0 -1 L 0 12 A 12 12, 0, 0, 1, 12 0 L 12 -1 Z"></path></svg>
+        <div class="container-md">
+            <a class="navbar-brand" href="{{ path('app_dashboard') }}">FormFlow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end bg-black text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header text-white">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FormFlow</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') == 'app_demo_basic' ? 'active' }}" href="{{ path('app_demo_basic') }}">Basic</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') == 'app_demo_kyc' ? 'active' }}" href="#">KYC</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') == 'app_demo_settings' ? 'active' }}" href="{{ path('app_demo_settings') }}">Settings</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') == 'app_demo_signin' ? 'active' }}" href="{{ path('app_demo_signin') }}">Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') == 'app_demo_signup' ? 'active' }}" href="{{ path('app_demo_signup') }}">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {{ include('common/_flash_messages.html.twig') }}
+
+    <div class="container mt-5 mb-5">
+        {% block body %}{% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">FormFlow</h5>
+                    <p>A powerful multistep form manager for Symfony applications.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://symfony.com/doc/current/forms.html" class="text-white" target="_blank">Symfony FormFlow (Coming soon)</a></li>
+                        <li><a href="https://symfony.com/doc/current/forms.html" class="text-white" target="_blank">Symfony Forms</a></li>
+                        <li><a href="https://github.com/symfony/symfony/pull/60212" class="text-white" target="_blank">Contribution</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">Created by <a href="https://yceruto.dev" class="text-white" target="_blank">Yonel Ceruto</a> @ 2025</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Powered by <a href="https://symfony.com" class="text-white" target="_blank">Symfony</a> | <a href="https://turbo.hotwired.dev/" class="text-white" target="_blank">Turbo</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

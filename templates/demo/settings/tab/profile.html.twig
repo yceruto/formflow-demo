@@ -1,0 +1,53 @@
+<div class="row g-3">
+    <div class="col">
+        {{ form_row(form.profile.personal.firstName) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.profile.personal.lastName) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.profile.personal.displayName) }}
+    </div>
+</div>
+<hr class="border-secondary-subtle">
+<div class="row">
+    <div class="col">
+        {{ form_row(form.profile.personal.email) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.profile.personal.phone) }}
+    </div>
+</div>
+<hr class="border-secondary-subtle">
+
+<h5>Address</h5>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.profile.location.street) }}
+    </div>
+</div>
+<div class="row g-3">
+    <div class="col">
+        {{ form_row(form.profile.location.city) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.profile.location.zipCode) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.profile.location.country) }}
+    </div>
+</div>
+
+<hr class="border-secondary-subtle">
+
+<div class="d-flex justify-content-end gap-3">
+    <button type="reset" class="btn btn-outline-dark">Cancel</button>
+    <button class="btn btn-dark" style="min-width: 75px">Save</button>
+</div>
+

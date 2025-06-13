@@ -1,0 +1,109 @@
+.card-monitor {
+    opacity: .6;
+    box-shadow: var(--bs-box-shadow-sm);
+    &:hover {
+        opacity: 1;
+        box-shadow: var(--bs-box-shadow-lg);
+    }
+    transition: all 0.5s ease-in-out;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* bootstrap override */
+
+.form-control:focus, .form-check-input:focus, .form-select:focus {
+    border-color: #adb5bd;
+    box-shadow: 0 0 0 .25rem #dee2e6;
+}
+
+.form-check-input:checked {
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.btn-light {
+    --bs-btn-hover-bg: #e2e2e2;
+    --bs-btn-hover-border-color: #e2e2e2;
+}
+
+.bg-disabled {
+    background-color: #e9ecef;
+}
+
+.list-icons {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 5px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23212529bf'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m4.5 12.75 6 6 9-13.5'/%3E%3C/svg%3E");
+        }
+    }
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Footer styles */
+footer {
+    margin-top: 3rem !important;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the footer stays at the bottom */
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container.mt-5.mb-5 {
+    flex: 1;
+}
+
+.navbar {
+    .navbar-corner-left {
+        position: absolute;
+        top: 56px;
+    }
+    .navbar-corner-right {
+        position: absolute;
+        top: 56px;
+        right: 0;
+        transform: rotateY(180deg);
+    }
+}

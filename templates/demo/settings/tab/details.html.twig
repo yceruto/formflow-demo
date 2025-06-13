@@ -1,0 +1,28 @@
+<div class="row g-3">
+    <div class="col">
+        {{ form_row(form.details.username) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.details.timezone) }}
+    </div>
+</div>
+<div class="mt-4">
+    <div class="d-grid gap-3" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card d-flex flex-column justify-content-center">
+            <span class="text-center">Status</span>
+            <span class="badge bg-success rounded-top-0">{{ form.details.vars.data.status|title }}</span>
+        </div>
+        <div class="card d-flex flex-column justify-content-center">
+            <span class="text-center">Verified</span>
+            <span class="badge bg-secondary rounded-top-0">{{ form.details.vars.data.isVerified ? 'Yes' : 'No' }}</span>
+        </div>
+        <div class="card d-flex flex-column justify-content-center">
+            <span class="text-center">Joined</span>
+            <span class="badge bg-secondary rounded-top-0">{{ form.details.vars.data.joinedDate|date('d/m/Y') }}</span>
+        </div>
+        <div class="card d-flex flex-column justify-content-center">
+            <span class="text-center">last active</span>
+            <span class="badge bg-secondary rounded-top-0">{{ form.details.vars.data.lastActive|date('d/m/Y H:i') }}</span>
+        </div>
+    </div>
+</div>

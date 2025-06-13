@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="fw-bold">Settings</h2>
+    <div class="card w-50">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                {% for step in form.vars.steps %}
+                    <li class="nav-item">
+                        <a class="nav-link {{ step.is_current_step ? 'active' }}"
+                           aria-current="{{ step.is_current_step ? 'true' : 'false' }}"
+                           href="{{ path('app_demo_settings', {'tab': step.name}) }}"
+                        >
+                            {{ step.name|title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-body p-4">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {% set current_step = form.vars.cursor.currentStep %}
+            {% set current_step_form_template = 'demo/settings/tab/' ~ current_step ~ '.html.twig' %}
+
+            <div class="d-flex align-items-center justify-content-between">
+                <p class="card-text text-muted mb-0">{{ field_help(form[current_step]) }}</p>
+                <div class="d-flex justify-content-end gap-3">
+                    <button type="reset" class="btn btn-outline-dark">Cancel</button>
+                    <button class="btn btn-dark" style="min-width: 75px">Save</button>
+                </div>
+            </div>
+            <hr class="border-secondary-subtle">
+
+            {{ include([current_step_form_template, 'demo/settings/tab/default.html.twig']) }}
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

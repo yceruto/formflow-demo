@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="w-75 mx-auto">
+        <div class="card shadow-sm">
+            <div>
+                {{ form_start(form) }}
+                <div class="row g-0">
+                    <div class="col-4 bg-light rounded-start p-4">
+                        {{ include('demo/signup/_progress.html.twig') }}
+                    </div>
+                    <div class="col-8">
+                        {% set current_step = form.vars.cursor.currentStep %}
+                        {% set current_step_block_name = 'signup_' ~ current_step ~ '_step' %}
+
+                        <div class="card-body p-4 px-5 d-flex flex-column h-100">
+                            <div class="flex-grow-1" style="min-height: 410px">
+                                <h5 class="card-title">{{ field_label(form[current_step]) }}</h5>
+                                <p class="card-text text-muted mb-4">{{ field_help(form[current_step]) }}</p>
+
+                                <hr class="border-secondary-subtle">
+
+                                {% if block(current_step_block_name) is defined %}
+                                    {{ block(current_step_block_name) }}
+                                {% else %}
+                                    {{ block('signup_default_step') }}
+                                {% endif %}
+                            </div>
+                            <div>
+                                {{ block('signup_navigator') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block signup_default_step %}
+    {{ form_widget(form[current_step]) }}
+{% endblock %}
+
+{% block signup_individual_step %}
+    <div class="row g-3">
+        <div class="col">
+            {{ form_row(form.individual.firstName) }}
+        </div>
+        <div class="col">
+            {{ form_row(form.individual.lastName) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.individual.about) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block signup_confirmation_step %}
+    <div class="d-flex align-items-center justify-content-between">
+        <h6 class="fw-bold">{{ form.vars.data.type|title }}</h6>
+        <button type="submit" name="{{ form.navigator.back_to.vars.full_name }}" formnovalidate class="btn btn-link" value="type">Edit</button>
+    </div>
+
+    <hr class="border-secondary-subtle">
+
+    <div class="d-flex align-items-center justify-content-between">
+        {% if form.vars.data.type == 'individual' %}
+            <div>
+                <h6>{{ form.vars.data.individual.firstName }} {{ form.vars.data.individual.lastName }}</h6>
+                <p>{{ form.vars.data.individual.about }}</p>
+            </div>
+            <button type="submit" name="{{ form.navigator.back_to.vars.full_name }}" formnovalidate class="btn btn-link" value="individual">Edit</button>
+        {% else %}
+            <div>
+                <h6>{{ form.vars.data.organization.companyName }}</h6>
+                <small>{{ form.vars.data.organization.address }}</small>
+            </div>
+            <button type="submit" name="{{ form.navigator.back_to.vars.full_name }}" formnovalidate class="btn btn-link" value="organization">Edit</button>
+        {% endif %}
+    </div>
+
+    <hr class="border-secondary-subtle">
+
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+            <h6>{{ form.vars.data.credentials.email }}</h6>
+            <small>**********</small>
+        </div>
+        <button type="submit" name="{{ form.navigator.back_to.vars.full_name }}" formnovalidate class="btn btn-link" value="individual">Edit</button>
+    </div>
+
+
+    <hr class="border-secondary-subtle">
+
+    <br>
+    {{ form_widget(form.confirmation) }}
+{% endblock %}
+
+{% block signup_navigator %}
+    <div class="d-flex justify-content-between border-top border-dark border-opacity-10 pt-3 mt-3">
+        <div class="d-flex gap-3">
+            {% if form.navigator.back is defined %}
+                {{ form_widget(form.navigator.back, {
+                    attr: {class: 'btn-outline-dark'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left"><path d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>',
+                }) }}
+            {% endif %}
+        </div>
+        <div class="d-flex gap-3">
+            {% if form.navigator.next is defined %}
+                {{ form_widget(form.navigator.next, {
+                    attr: {class: 'btn-dark flex-row-reverse'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>',
+                }) }}
+            {% endif %}
+            {% if form.navigator.finish is defined %}
+                {{ form_widget(form.navigator.finish, {
+                    attr: {class: 'btn-dark flex-row-reverse'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>',
+                }) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+

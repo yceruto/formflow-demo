@@ -1,0 +1,49 @@
+<div class="d-flex flex-column h-100">
+    <div class="flex-grow-1">
+        <h2 class="card-title pb-3">Sign Up</h2>
+        <div class="vstack gap-4 my-4">
+            {% for step in form.vars.visible_steps %}
+                <div class="d-flex gap-2 align-items-center {{ step.index > form.vars.cursor.stepIndex ? 'text-muted' }}">
+                    {% set content %}
+                        {% if step.is_current_step %}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-circle-dot" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" style="fill: #212529"/></svg>
+                        {% elseif step.index > form.vars.cursor.stepIndex %}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-circle-dashed" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg>
+                        {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-circle-check" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" style="fill: black"/><path d="m9 12 2 2 4-4" style="color: #fff"/></svg>
+                        {% endif %}
+                    {% endset %}
+
+                    {% if form.navigator.back_to is defined and not step.is_skipped and step.index < form.vars.cursor.stepIndex %}
+                        <button type="submit" class="bg-light border-0 p-0 align-self-start" name="{{ field_name(form.navigator.back_to) }}" value="{{ step.name }}" formnovalidate>
+                            {{ content|raw }}
+                        </button>
+                    {% else %}
+                        <span class="align-self-start">{{ content|raw }}</span>
+                    {% endif %}
+
+                    <div class="d-flex flex-column">
+                        {{ step.name|title }}
+                        {% if step.name == 'type' %}
+                            <small class="text-muted">Select the account type</small>
+                        {% elseif step.name == 'individual' %}
+                            <small class="text-muted">Fill in your personal information</small>
+                        {% elseif step.name == 'organization' %}
+                            <small class="text-muted">Fill in your organization details</small>
+                        {% elseif step.name == 'credentials' %}
+                            <small class="text-muted">Set up your credentials</small>
+                        {% elseif step.name == 'confirmation' %}
+                            <small class="text-muted">Review your information</small>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        {{ form_widget(form.navigator.reset, {
+            attr: {class: 'btn-light'},
+            icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>',
+        }) }}
+    </div>
+</div>

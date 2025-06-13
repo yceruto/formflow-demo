@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="w-25 mx-auto">
+        <div class="card shadow-sm p-3">
+            <div class="card-body">
+                <div class="text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-lock-icon lucide-user-lock"><circle cx="10" cy="7" r="4"/><path d="M10.3 15H7a4 4 0 0 0-4 4v2"/><path d="M15 15.5V14a2 2 0 0 1 4 0v1.5"/><rect width="8" height="5" x="13" y="16" rx=".899"/></svg>
+                </div>
+                <h2 class="fw-bold text-center mb-4">Sign In</h2>
+                <div>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {% if form.email is defined %}
+                        {{ form_row(form.email) }}
+                    {% endif %}
+
+                    {% if form.password is defined %}
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <div class="input-group">
+                                <input type="text" disabled class="form-control border border-end-0" aria-label="User’s email" value="{{ form.vars.data.email }}">
+                                {{ form_widget(form.navigator.back, {'attr': {'class': 'text-dark btn-link bg-disabled border border-start-0'}}) }}
+                            </div>
+                        </div>
+
+                        {{ form_row(form.password) }}
+
+                        <a href="#" class="text-dark">Forgot password?</a>
+                    {% endif %}
+
+                    <div class="d-grid mt-4">
+                        {% if form.navigator.next is defined %}
+                            {{ form_widget(form.navigator.next, {'attr': {'class': 'btn-dark'}}) }}
+                        {% endif %}
+                        {% if form.navigator.finish is defined %}
+                            {{ form_widget(form.navigator.finish, {'attr': {'class': 'btn-dark'}}) }}
+                        {% endif %}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

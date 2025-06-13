@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col">
+        {{ form_row(form.notification.enabled) }}
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col">
+        <label class="form-label">Channels</label>
+        {{ form_row(form.notification.email) }}
+        {{ form_row(form.notification.sms) }}
+        {{ form_row(form.notification.mobile) }}
+    </div>
+</div>

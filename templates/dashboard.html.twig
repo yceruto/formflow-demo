@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold mb-3">FormFlow Examples</h1>
+        <p class="lead col-lg-8 mx-auto">A collection of examples showcasing different implementations of Symfony FormFlow, designed to make multistep forms easy to build and maintain.</p>
+        <div class="d-flex justify-content-center gap-3 mt-4 mb-5">
+            <a href="https://github.com/symfony/symfony/pull/60212" class="btn btn-dark d-flex align-items-center px-4 py-2" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.7-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                View on GitHub
+            </a>
+            <a href="https://github.com/symfony/symfony/pull/60212" class="btn btn-outline-dark d-flex align-items-center px-4 py-2" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"></path>
+                </svg>
+                Documentation
+            </a>
+        </div>
+    </div>
+
+    <div class="cards-grid pt-4">
+        <a href="{{ path('app_demo_basic') }}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><rect width="8" height="8" x="14" y="14" rx="2"/></svg>
+                        <h5 class="card-title fw-bold mb-0">Basic</h5>
+                    </div>
+                    <p class="card-text text-secondary mb-3">
+                        Basic example that showcases the fundamental features of Symfony FormFlow with a step-by-step form wizard implementation.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Multistep form wizard</li>
+                        <li>Default form theme</li>
+                        <li>Simple step indicator</li>
+                        <li>Form validation</li>
+                        <li>Session data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Run</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="{{ path('app_demo_signin') }}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/></svg>
+                        <h5 class="card-title fw-bold mb-0">Sign In</h5>
+                    </div>
+                    <p class="card-text text-secondary">
+                        A streamlined authentication form showcasing step-by-step login process with email verification and security checks.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Two-Stage Login Flow</li>
+                        <li>Custom form rendering</li>
+                        <li>Custom navigator buttons</li>
+                        <li>Form validation</li>
+                        <li>Session data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Run</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="{{ path('app_demo_signup') }}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+                        <h5 class="card-title fw-bold mb-0">Sign Up</h5>
+                    </div>
+                    <p class="card-text text-secondary">
+                        A multistep registration form demonstrating user account creation with validation.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Dynamic steps definition</li>
+                        <li>Form step with <code>inherit_data</code></li>
+                        <li>Progress tracking</li>
+                        <li>Jump to any previous step</li>
+                        <li>Reset action</li>
+                        <li>Confirmation step</li>
+                        <li>Custom form theme</li>
+                        <li>Form validation</li>
+                        <li>Session data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Run</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/><path d="M14 13.12c0 2.38 0 6.38-1 8.88"/><path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"/><path d="M2 12a10 10 0 0 1 18-6"/><path d="M2 16h.01"/><path d="M21.8 16c.2-2 .131-5.354 0-6"/><path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/><path d="M8.65 22c.21-.66.45-1.32.57-2"/><path d="M9 6.8a6 6 0 0 1 9 5.2v2"/></svg>
+                        <h5 class="card-title fw-bold mb-0">KYC Validation</h5>
+                    </div>
+                    <p class="card-text text-secondary">
+                        A comprehensive KYC (Know Your Customer) validation workflow for identity verification and compliance requirements.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Dynamic steps definition</li>
+                        <li>File uploading</li>
+                        <li>Manage collection</li>
+                        <li>Custom form theme</li>
+                        <li>Form validation</li>
+                        <li>Session data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Coming soon</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+
+        <a href="{{ path('app_demo_settings') }}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <h5 class="card-title fw-bold mb-0">Settings</h5>
+                    </div>
+                    <p class="card-text text-secondary">
+                        A tab-based form interface where users can freely navigate between sections without following a specific order.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Tab-based navigation</li>
+                        <li>Non-linear form completion</li>
+                        <li>Custom form theme</li>
+                        <li>Form validation</li>
+                        <li>Custom step accessor</li>
+                        <li>Null data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Run</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endblock %}
