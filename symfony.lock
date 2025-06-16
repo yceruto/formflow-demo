@@ -158,6 +158,19 @@
             "config/packages/validator.yaml"
         ]
     },
+    "symfony/web-profiler-bundle": {
+        "version": "7.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "7.3",
+            "ref": "5b2b543e13942495c0003f67780cb4448af9e606"
+        },
+        "files": [
+            "config/packages/web_profiler.yaml",
+            "config/routes/web_profiler.yaml"
+        ]
+    },
     "twig/extra-bundle": {
         "version": "v3.21.0"
     },
