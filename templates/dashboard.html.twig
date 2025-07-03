@@ -161,5 +161,31 @@
                 </div>
             </div>
         </a>
+
+        <a href="{{ path('app_demo_color_picker') }}" class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><path d="M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2"/><rect width="8" height="8" x="14" y="14" rx="2"/></svg>
+                        <h5 class="card-title fw-bold mb-0">Color Picker</h5>
+                    </div>
+                    <p class="card-text text-secondary mb-3">
+                        An example where a step depends on the previous step choice.
+                    </p>
+                    <ul class="list-icons text-secondary mt-3">
+                        <li>Step dependency based on previous choice</li>
+                        <li>Dynamic choice generation</li>
+                        <li>Simple step indicator</li>
+                        <li>Session data storage</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-secondary bg-transparent border-top-0 p-4 pt-0 text-end">
+                    <small>Run</small>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </div>
+            </div>
+        </a>
     </div>
 {% endblock %}
