@@ -18,10 +18,12 @@ class ColorPickerType extends AbstractFlowType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $data = $builder->getDataStorage()->load();
-        $mainColor = $data instanceof ColorPickerDto ? $data->mainColor : null;
         $builder->addStep('step1', Step1Type::class);
-        $builder->addStep('step2', Step2Type::class, ['main_color' => $mainColor]);
+        $builder->addStep('step2', Step2Type::class, [
+            // necessary when inherit_data is set to true, and
+            // you want to access $builder->getData() in Step2Type
+            'data' => $builder->getData(),
+        ]);
 
         $builder->add('navigator', FormFlowNavigatorType::class);
     }

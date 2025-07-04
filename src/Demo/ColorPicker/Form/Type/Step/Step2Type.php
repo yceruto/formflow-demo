@@ -12,12 +12,15 @@ class Step2Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $mainColor = $options['main_color'];
-        assert(is_string($mainColor), 'Main color must be a string');
+        /** @var ColorPickerDto $colorPicker */
+        $colorPicker = $builder->getData();
+
+        assert(is_string($colorPicker->mainColor), 'Main color must be a string');
+
         $gradients = [
-            'Lighter' => $this->adjustBrightness($mainColor, 40),
-            'Original' => $mainColor,
-            'Darker' => $this->adjustBrightness($mainColor, -40),
+            'Lighter' => $this->adjustBrightness($colorPicker->mainColor, 40),
+            'Original' => $colorPicker->mainColor,
+            'Darker' => $this->adjustBrightness($colorPicker->mainColor, -40),
         ];
 
         $builder->add('gradientColor', ChoiceType::class, [
@@ -34,7 +37,6 @@ class Step2Type extends AbstractType
         $resolver->setDefaults([
             'data_class' => ColorPickerDto::class,
             'inherit_data' => true,
-            'main_color' => null,
         ]);
     }
 
