@@ -5,38 +5,26 @@ namespace App\Demo\SignUp\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Yceruto\FormFlowBundle\Form\Extension\Core\Type\FormFlowActionType;
-use Yceruto\FormFlowBundle\Form\Flow\FormFlowCursor;
+use Yceruto\FormFlowBundle\Form\Flow\FlowCursor;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowFinishType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowNextType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowPreviousType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowResetType;
 
 class SignUpNavigatorType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('reset', FormFlowActionType::class, [
-            'action' => 'reset',
-        ]);
-
-        $builder->add('back_to', FormFlowActionType::class, [
-            'action' => 'back',
+        $builder->add('reset', FlowResetType::class);
+        $builder->add('back_to', FlowPreviousType::class, [
             'validate' => false,
             'validation_groups' => false,
             'clear_submission' => false,
-            'include_if' => fn (FormFlowCursor $cursor) => !$cursor->isFirstStep(),
+            'include_if' => fn (FlowCursor $cursor) => !$cursor->isFirstStep(),
         ]);
-
-        $builder->add('back', FormFlowActionType::class, [
-            'action' => 'back',
-        ]);
-
-        $builder->add('next', FormFlowActionType::class, [
-            'label' => 'Continue',
-            'action' => 'next',
-        ]);
-
-        $builder->add('finish', FormFlowActionType::class, [
-            'label' => 'Sign Up',
-            'action' => 'finish',
-        ]);
+        $builder->add('back', FlowPreviousType::class);
+        $builder->add('next', FlowNextType::class, ['label' => 'Continue']);
+        $builder->add('finish', FlowFinishType::class, ['label' => 'Sign Up']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -5,26 +5,17 @@ namespace App\Demo\SignIn\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Yceruto\FormFlowBundle\Form\Extension\Core\Type\FormFlowActionType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowFinishType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowNextType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowPreviousType;
 
 class SignInNavigatorType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('back', FormFlowActionType::class, [
-            'label' => 'Edit',
-            'action' => 'back',
-        ]);
-
-        $builder->add('next', FormFlowActionType::class, [
-            'label' => 'Log in',
-            'action' => 'next',
-        ]);
-
-        $builder->add('finish', FormFlowActionType::class, [
-            'label' => 'Log in',
-            'action' => 'finish',
-        ]);
+        $builder->add('back', FlowPreviousType::class, ['label' => 'Edit']);
+        $builder->add('next', FlowNextType::class, ['label' => 'Log in']);
+        $builder->add('finish', FlowFinishType::class, ['label' => 'Log in']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

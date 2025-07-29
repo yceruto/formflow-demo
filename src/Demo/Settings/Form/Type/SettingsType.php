@@ -8,7 +8,6 @@ use App\Demo\Settings\Form\Type\Step\NotificationType;
 use App\Demo\Settings\Form\Type\Step\ProfileType;
 use App\Demo\Settings\Form\Type\Step\TeamType;
 use App\Demo\Settings\Model\Account;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Yceruto\FormFlowBundle\Form\Flow\AbstractFlowType;
@@ -17,10 +16,7 @@ use Yceruto\FormFlowBundle\Form\Flow\FormFlowBuilderInterface;
 
 class SettingsType extends AbstractFlowType
 {
-    /**
-     * @param FormFlowBuilderInterface $builder
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildFormFlow(FormFlowBuilderInterface $builder, array $options): void
     {
         $builder->addStep('details', DetailsType::class);
         $builder->addStep('profile', ProfileType::class);

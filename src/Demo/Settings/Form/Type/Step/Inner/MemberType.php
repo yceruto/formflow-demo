@@ -8,9 +8,9 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Yceruto\FormFlowBundle\Form\Extension\Core\Type\FormFlowActionType;
-use Yceruto\FormFlowBundle\Form\Flow\ActionButtonInterface;
+use Yceruto\FormFlowBundle\Form\Flow\FlowButtonInterface;
 use Yceruto\FormFlowBundle\Form\Flow\FormFlowInterface;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowButtonType;
 
 class MemberType extends AbstractType
 {
@@ -24,11 +24,11 @@ class MemberType extends AbstractType
             ],
         ]);
 
-        $builder->add('remove', FormFlowActionType::class, [
+        $builder->add('remove', FlowButtonType::class, [
             'label' => false,
             'validate' => false,
             'validation_groups' => false,
-            'handler' => function (Member $data, ActionButtonInterface $button, FormFlowInterface $flow) {
+            'handler' => function (Member $data, FlowButtonInterface $button, FormFlowInterface $flow) {
                 unset($flow->getData()->team[$button->getViewData()]);
             },
         ]);

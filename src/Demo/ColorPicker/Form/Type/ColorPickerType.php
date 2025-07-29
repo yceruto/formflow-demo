@@ -5,18 +5,17 @@ namespace App\Demo\ColorPicker\Form\Type;
 use App\Demo\ColorPicker\Form\Data\ColorPickerDto;
 use App\Demo\ColorPicker\Form\Type\Step\Step1Type;
 use App\Demo\ColorPicker\Form\Type\Step\Step2Type;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Yceruto\FormFlowBundle\Form\Extension\Core\Type\FormFlowNavigatorType;
 use Yceruto\FormFlowBundle\Form\Flow\AbstractFlowType;
 use Yceruto\FormFlowBundle\Form\Flow\FormFlowBuilderInterface;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowNavigatorType;
 
 class ColorPickerType extends AbstractFlowType
 {
     /**
      * @param FormFlowBuilderInterface $builder
      */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildFormFlow(FormFlowBuilderInterface $builder, array $options): void
     {
         $builder->addStep('step1', Step1Type::class);
         $builder->addStep('step2', Step2Type::class, [
@@ -25,7 +24,7 @@ class ColorPickerType extends AbstractFlowType
             'data' => $builder->getData(),
         ]);
 
-        $builder->add('navigator', FormFlowNavigatorType::class);
+        $builder->add('navigator', FlowNavigatorType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -2,7 +2,6 @@
 
 namespace App\Demo\Settings\Controller;
 
-use App\Demo\Settings\Form\Data\SettingsDto;
 use App\Demo\Settings\Form\Type\SettingsType;
 use App\Demo\Settings\Repository\AccountRepositoryInterface;
 use App\Turbo\Controller\TurboFlowTrait;
@@ -31,7 +30,7 @@ class SettingsController extends AbstractController
         $form = $this->createForm(SettingsType::class, $account, ['tab' => $tab])
             ->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() && null === $form->getClickedActionButton()) {
+        if ($form->isSubmitted() && $form->isValid() && null === $form->getClickedButton()) {
             $this->repository->save($account);
 
             $this->addFlash('success', 'Your information has been updated!');

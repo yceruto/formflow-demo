@@ -9,7 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Yceruto\FormFlowBundle\Form\Extension\Core\Type\FormFlowActionType;
+use Yceruto\FormFlowBundle\Form\Flow\Type\FlowButtonType;
 
 class TeamType extends AbstractType
 {
@@ -24,7 +24,7 @@ class TeamType extends AbstractType
             'error_bubbling' => false,
         ]);
 
-        $builder->add('add', FormFlowActionType::class, [
+        $builder->add('add', FlowButtonType::class, [
             'validate' => false,
             'validation_groups' => false,
             'handler' => function (Account $data) {

@@ -8,17 +8,13 @@ use App\Demo\SignUp\Form\Type\Step\ConfirmationType;
 use App\Demo\SignUp\Form\Type\Step\CredentialsType;
 use App\Demo\SignUp\Form\Type\Step\IndividualType;
 use App\Demo\SignUp\Form\Type\Step\OrganizationType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Yceruto\FormFlowBundle\Form\Flow\AbstractFlowType;
 use Yceruto\FormFlowBundle\Form\Flow\FormFlowBuilderInterface;
 
 class SignUpType extends AbstractFlowType
 {
-    /**
-     * @param FormFlowBuilderInterface $builder
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildFormFlow(FormFlowBuilderInterface $builder, array $options): void
     {
         $builder->addStep('type', AccountTypeSelectionType::class);
         $builder->addStep('individual', IndividualType::class, skip: fn (SignUpDto $data) => $data->type !== 'individual');
