@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a959c997a7227ad7789083028565cd0",
+    "content-hash": "1a8297e123990b1a9bc737b2cb4755bb",
     "packages": [
         {
             "name": "composer/semver",
@@ -4698,16 +4698,16 @@
         },
         {
             "name": "yceruto/formflow-bundle",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yceruto/formflow-bundle.git",
-                "reference": "691019f6495a994f25ca7df6a78f104cbaf13f1c"
+                "reference": "e40636ff20d230250e06327db735496fc1b6e87d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yceruto/formflow-bundle/zipball/691019f6495a994f25ca7df6a78f104cbaf13f1c",
-                "reference": "691019f6495a994f25ca7df6a78f104cbaf13f1c",
+                "url": "https://api.github.com/repos/yceruto/formflow-bundle/zipball/e40636ff20d230250e06327db735496fc1b6e87d",
+                "reference": "e40636ff20d230250e06327db735496fc1b6e87d",
                 "shasum": ""
             },
             "require": {
@@ -4738,9 +4738,9 @@
             "description": "Create and manage multistep forms",
             "support": {
                 "issues": "https://github.com/yceruto/formflow-bundle/issues",
-                "source": "https://github.com/yceruto/formflow-bundle/tree/v0.2.0"
+                "source": "https://github.com/yceruto/formflow-bundle/tree/v0.2.1"
             },
-            "time": "2025-07-29T15:50:41+00:00"
+            "time": "2025-07-30T03:27:44+00:00"
         }
     ],
     "packages-dev": [
