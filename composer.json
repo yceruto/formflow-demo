@@ -21,12 +21,12 @@
         "symfony/runtime": "7.3.*",
         "symfony/security-bundle": "7.3.*",
         "symfony/twig-bundle": "7.3.*",
-        "symfony/ux-turbo": "^2.28.1",
+        "symfony/ux-turbo": "^2.29.1",
         "symfony/validator": "7.3.*",
         "symfony/yaml": "7.3.*",
         "twig/extra-bundle": "^2.12|^3.21",
         "twig/twig": "^2.12|^3.21.1",
-        "yceruto/formflow-bundle": "^0.2.1"
+        "yceruto/formflow-bundle": "^0.2.2"
     },
     "config": {
         "allow-plugins": {
