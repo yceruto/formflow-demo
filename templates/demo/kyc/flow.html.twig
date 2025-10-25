@@ -1,0 +1,204 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="w-75 mx-auto">
+        <div class="card shadow-lg">
+            <div>
+                {{ form_start(form, {attr: {enctype: 'multipart/form-data'}}) }}
+                <div class="row g-0">
+                    <div class="col-4 bg-light rounded-start p-4">
+                        {{ include('demo/kyc/_progress.html.twig') }}
+                    </div>
+                    <div class="col-8">
+                        {% set current_step = form.vars.cursor.currentStep %}
+                        {% set current_step_block_name = 'kyc_' ~ current_step ~ '_step' %}
+
+                        <div class="card-body p-4 px-5 d-flex flex-column h-100">
+                            <div class="flex-grow-1" style="min-height: 410px">
+                                <h5 class="card-title">{{ field_label(form[current_step]) }}</h5>
+                                <p class="card-text text-muted mb-4">{{ field_help(form[current_step]) }}</p>
+
+                                <hr class="border-secondary-subtle">
+
+                                {% if block(current_step_block_name) is defined %}
+                                    {{ block(current_step_block_name) }}
+                                {% else %}
+                                    {{ block('kyc_default_step') }}
+                                {% endif %}
+                            </div>
+                            <div>
+                                {{ block('kyc_navigator') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block kyc_default_step %}
+    {{ form_widget(form[current_step]) }}
+{% endblock %}
+
+{% block kyc_personal_info_step %}
+    <div class="row g-3">
+        <div class="col-6">
+            {{ form_row(form.personalInfo.firstName) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.personalInfo.lastName) }}
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-6">
+            {{ form_row(form.personalInfo.dateOfBirth) }}
+        </div>
+        <div class="col-6">
+            {{ form_row(form.personalInfo.phone) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.personalInfo.country) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block kyc_documents_step %}
+    {% set data = form.vars.data %}
+
+    <div class="mb-3">
+        {{ form_row(form.documents.idDocumentFile) }}
+
+        {# Show previously uploaded documents if they exist #}
+        {% if data.documents.idDocumentPath|default(false) %}
+            <div class="alert alert-success d-flex align-items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-check"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>
+                <div>
+                    <strong>ID Document:</strong> {{ data.documents.idDocumentPath }} (uploaded)
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <hr class="border-secondary-subtle">
+
+    <div class="mb-3">
+        {{ form_row(form.documents.proofOfAddressFile) }}
+
+        {% if data.documents.proofOfAddressPath|default(false) %}
+            <div class="alert alert-success d-flex align-items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-check"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>
+                <div>
+                    <strong>Proof of Address:</strong> {{ data.documents.proofOfAddressPath }} (uploaded)
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="alert alert-info d-flex align-items-start gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info mt-1"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <small>
+            Files will be uploaded to a private directory and only file references will be stored in session.
+            You can upload new files to replace the existing ones.
+        </small>
+    </div>
+{% endblock %}
+
+{% block kyc_review_step %}
+    <div class="mb-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6 class="fw-bold">Personal Information</h6>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Name:</div>
+            <div class="col-8">{{ form.vars.data.personalInfo.firstName }} {{ form.vars.data.personalInfo.lastName }}</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Date of Birth:</div>
+            <div class="col-8">{{ form.vars.data.personalInfo.dateOfBirth }}</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Phone:</div>
+            <div class="col-8">{{ form.vars.data.personalInfo.phone }}</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Country:</div>
+            <div class="col-8">{{ form.vars.data.personalInfo.country }}</div>
+        </div>
+    </div>
+
+    <hr class="border-secondary-subtle">
+
+    <div class="mb-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <h6 class="fw-bold">Uploaded Documents</h6>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-4 text-muted">ID Document:</div>
+            <div class="col-8">
+                {% if form.vars.data.documents.idDocumentPath %}
+                    <span class="badge bg-success">{{ form.vars.data.documents.idDocumentPath }}</span>
+                {% else %}
+                    <span class="text-danger">Not uploaded</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Proof of Address:</div>
+            <div class="col-8">
+                {% if form.vars.data.documents.proofOfAddressPath %}
+                    <span class="badge bg-success">{{ form.vars.data.documents.proofOfAddressPath }}</span>
+                {% else %}
+                    <span class="text-danger">Not uploaded</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-warning d-flex align-items-start gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle mt-1"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <small>
+            Please review all your information carefully before submitting. Once submitted, your KYC application will be processed for verification.
+        </small>
+    </div>
+
+    {% do form.review.setRendered() %}
+{% endblock %}
+
+{% block kyc_navigator %}
+    <div class="d-flex justify-content-between border-top border-dark border-opacity-10 pt-3 mt-3">
+        <div class="d-flex gap-3">
+            {% if form.navigator.back is defined %}
+                {{ form_widget(form.navigator.back, {
+                    attr: {class: 'btn-outline-dark'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left"><path d="M6 8L2 12L6 16"/><path d="M2 12H22"/></svg>',
+                }) }}
+            {% endif %}
+        </div>
+        <div class="d-flex gap-3">
+            {% if form.navigator.upload is defined %}
+                {{ form_widget(form.navigator.upload, {
+                    attr: {class: 'btn-dark flex-row-reverse'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>',
+                }) }}
+            {% endif %}
+            {% if form.navigator.next is defined %}
+                {{ form_widget(form.navigator.next, {
+                    attr: {class: 'btn-dark flex-row-reverse'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>',
+                }) }}
+            {% endif %}
+            {% if form.navigator.finish is defined %}
+                {{ form_widget(form.navigator.finish, {
+                    attr: {class: 'btn-dark flex-row-reverse'},
+                    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>',
+                }) }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+app_dashboard:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: 'dashboard.html.twig'
+
+controllers:
+    resource: ../src/Demo/*/Controller/*Controller.php
+    type: attribute

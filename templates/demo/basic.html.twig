@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="fw-bold">Basic</h2>
+    <div class="w-50">
+
+        {{ form(form) }}
+
+        Step {{ form.vars.cursor.stepIndex + 1 }} of {{ form.vars.cursor.totalSteps }}
+    </div>
+{% endblock %}
