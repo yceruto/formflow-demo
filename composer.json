@@ -3,7 +3,7 @@
     "type": "project",
     "license": "MIT",
     "description": "A minimal Symfony project recommended to create bare bones applications",
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "require": {
         "php": ">=8.4.8",
         "ext-ctype": "*",
@@ -13,7 +13,7 @@
         "symfony/asset-mapper": "7.4.*",
         "symfony/console": "7.4.*",
         "symfony/dotenv": "7.4.*",
-        "symfony/flex": "^2",
+        "symfony/flex": "^2.8.2",
         "symfony/form": "7.4.*",
         "symfony/framework-bundle": "7.4.*",
         "symfony/intl": "7.4.*",
@@ -21,11 +21,11 @@
         "symfony/runtime": "7.4.*",
         "symfony/security-bundle": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
-        "symfony/ux-turbo": "^2",
+        "symfony/ux-turbo": "^2.31",
         "symfony/validator": "7.4.*",
         "symfony/yaml": "7.4.*",
-        "twig/extra-bundle": "^2.12|^3",
-        "twig/twig": "^2.12|^3"
+        "twig/extra-bundle": "^2.12|^3.21",
+        "twig/twig": "^2.12|^3.21.1"
     },
     "config": {
         "allow-plugins": {

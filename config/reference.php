@@ -386,7 +386,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         prefix_seed?: scalar|null, // Used to namespace cache keys when using several apps with the same shared backend. // Default: "_%kernel.project_dir%.%kernel.container_class%"
  *         app?: scalar|null, // App related cache pools configuration. // Default: "cache.adapter.filesystem"
  *         system?: scalar|null, // System related cache pools configuration. // Default: "cache.adapter.system"
- *         directory?: scalar|null, // Default: "%kernel.cache_dir%/pools/app"
+ *         directory?: scalar|null, // Default: "%kernel.share_dir%/pools/app"
  *         default_psr6_provider?: scalar|null,
  *         default_redis_provider?: scalar|null, // Default: "redis://localhost"
  *         default_valkey_provider?: scalar|null, // Default: "valkey://localhost"
@@ -752,7 +752,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         html_input?: "strip"|"allow"|"escape", // How to handle HTML input.
  *         allow_unsafe_links?: bool, // Remove risky link and image URLs by setting this to false. // Default: true
  *         max_nesting_level?: int, // The maximum nesting level for blocks. // Default: 9223372036854775807
- *         max_delimiters_per_line?: int, // The maximum number of strong/emphasis delimiters per line. // Default: 9223372036854775807
  *         slug_normalizer?: array{ // Array of options for configuring how URL-safe slugs are created.
  *             instance?: mixed,
  *             max_length?: int, // Default: 255
