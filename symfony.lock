@@ -109,21 +109,6 @@
             "config/routes/security.yaml"
         ]
     },
-    "symfony/stimulus-bundle": {
-        "version": "2.26",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "2.20",
-            "ref": "3acc494b566816514a6873a89023a35440b6386d"
-        },
-        "files": [
-            "assets/bootstrap.js",
-            "assets/controllers.json",
-            "assets/controllers/csrf_protection_controller.js",
-            "assets/controllers/hello_controller.js"
-        ]
-    },
     "symfony/twig-bundle": {
         "version": "7.3",
         "recipe": {
@@ -136,15 +121,6 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
-    },
-    "symfony/ux-turbo": {
-        "version": "2.26",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "2.20",
-            "ref": "c85ff94da66841d7ff087c19cbcd97a2df744ef9"
-        }
     },
     "symfony/validator": {
         "version": "7.3",

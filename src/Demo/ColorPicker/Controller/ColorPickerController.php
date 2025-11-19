@@ -4,7 +4,6 @@ namespace App\Demo\ColorPicker\Controller;
 
 use App\Demo\ColorPicker\Form\Data\ColorPickerDto;
 use App\Demo\ColorPicker\Form\Type\ColorPickerType;
-use App\Turbo\Controller\TurboFlowTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Flow\FormFlowInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,8 +12,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ColorPickerController extends AbstractController
 {
-    use TurboFlowTrait;
-
     #[Route('/demo/color-picker', name: 'app_demo_color_picker')]
     public function __invoke(Request $request): Response
     {
@@ -31,7 +28,7 @@ class ColorPickerController extends AbstractController
         }
 
         return $this->render('demo/color_picker.html.twig', [
-            'form' => $flow,
+            'form' => $flow->getStepForm(),
         ]);
     }
 }

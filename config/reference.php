@@ -767,20 +767,6 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         ...<mixed>
  *     },
  * }
- * @psalm-type StimulusConfig = array{
- *     controller_paths?: list<scalar|null>,
- *     controllers_json?: scalar|null, // Default: "%kernel.project_dir%/assets/controllers.json"
- * }
- * @psalm-type TurboConfig = array{
- *     broadcast?: bool|array{
- *         enabled?: bool, // Default: true
- *         entity_template_prefixes?: list<scalar|null>,
- *         doctrine_orm?: bool|array{ // Enable the Doctrine ORM integration
- *             enabled?: bool, // Default: false
- *         },
- *     },
- *     default_transport?: scalar|null, // Default: "default"
- * }
  * @psalm-type SecurityConfig = array{
  *     access_denied_url?: scalar|null, // Default: null
  *     session_fixation_strategy?: "none"|"migrate"|"invalidate", // Default: "migrate"
@@ -886,8 +872,6 @@ final class App extends AppReference
      *     framework?: FrameworkConfig,
      *     twig?: TwigConfig,
      *     twig_extra?: TwigExtraConfig,
-     *     stimulus?: StimulusConfig,
-     *     turbo?: TurboConfig,
      *     security?: SecurityConfig,
      *     "when@dev"?: array{
      *         imports?: ImportsConfig,
@@ -896,8 +880,6 @@ final class App extends AppReference
      *         framework?: FrameworkConfig,
      *         twig?: TwigConfig,
      *         twig_extra?: TwigExtraConfig,
-     *         stimulus?: StimulusConfig,
-     *         turbo?: TurboConfig,
      *         security?: SecurityConfig,
      *         web_profiler?: WebProfilerConfig,
      *     },
@@ -908,8 +890,6 @@ final class App extends AppReference
      *         framework?: FrameworkConfig,
      *         twig?: TwigConfig,
      *         twig_extra?: TwigExtraConfig,
-     *         stimulus?: StimulusConfig,
-     *         turbo?: TurboConfig,
      *         security?: SecurityConfig,
      *     },
      *     "when@test"?: array{
@@ -919,8 +899,6 @@ final class App extends AppReference
      *         framework?: FrameworkConfig,
      *         twig?: TwigConfig,
      *         twig_extra?: TwigExtraConfig,
-     *         stimulus?: StimulusConfig,
-     *         turbo?: TurboConfig,
      *         security?: SecurityConfig,
      *         web_profiler?: WebProfilerConfig,
      *     },

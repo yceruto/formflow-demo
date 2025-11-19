@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b932184cad09c11188986175c0a9367",
+    "content-hash": "20ee8f47c1242a39f87a8de17b35f813",
     "packages": [
         {
             "name": "composer/semver",
@@ -4004,79 +4004,6 @@
             "time": "2025-04-25T09:37:31+00:00"
         },
         {
-            "name": "symfony/stimulus-bundle",
-            "version": "v2.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/stimulus-bundle.git",
-                "reference": "c5ea8ee2ccd45447b7f4b6b82f704ee5e76127f0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stimulus-bundle/zipball/c5ea8ee2ccd45447b7f4b6b82f704ee5e76127f0",
-                "reference": "c5ea8ee2ccd45447b7f4b6b82f704ee5e76127f0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/config": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/dependency-injection": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/deprecation-contracts": "^2.0|^3.0",
-                "symfony/finder": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/http-kernel": "^5.4|^6.0|^7.0|^8.0",
-                "twig/twig": "^2.15.3|^3.8"
-            },
-            "require-dev": {
-                "symfony/asset-mapper": "^6.3|^7.0|^8.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/twig-bundle": "^5.4|^6.0|^7.0|^8.0",
-                "zenstruck/browser": "^1.4"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\UX\\StimulusBundle\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Integration with your Symfony app & Stimulus!",
-            "keywords": [
-                "symfony-ux"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/stimulus-bundle/tree/v2.31.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-09-24T13:27:42+00:00"
-        },
-        {
             "name": "symfony/string",
             "version": "v7.4.0-BETA1",
             "source": {
@@ -4531,109 +4458,6 @@
                 }
             ],
             "time": "2025-10-16T16:24:39+00:00"
-        },
-        {
-            "name": "symfony/ux-turbo",
-            "version": "v2.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/ux-turbo.git",
-                "reference": "06d5e4cf4573efe4faf648f3810a28c63684c706"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-turbo/zipball/06d5e4cf4573efe4faf648f3810a28c63684c706",
-                "reference": "06d5e4cf4573efe4faf648f3810a28c63684c706",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "symfony/stimulus-bundle": "^2.9.1"
-            },
-            "conflict": {
-                "symfony/flex": "<1.13"
-            },
-            "require-dev": {
-                "dbrekelmans/bdi": "dev-main",
-                "doctrine/doctrine-bundle": "^2.4.3",
-                "doctrine/orm": "^2.8|^3.0",
-                "php-webdriver/webdriver": "^1.15",
-                "phpstan/phpstan": "^2.1.17",
-                "symfony/asset-mapper": "^6.4|^7.0|^8.0",
-                "symfony/debug-bundle": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/expression-language": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/form": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/framework-bundle": "^6.4|^7.0|^8.0",
-                "symfony/mercure-bundle": "^0.3.7",
-                "symfony/messenger": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/panther": "^2.2",
-                "symfony/phpunit-bridge": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/process": "^5.4|6.3.*|^7.0|^8.0",
-                "symfony/property-access": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/security-core": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/stopwatch": "^5.4|^6.0|^7.0|^8.0",
-                "symfony/twig-bundle": "^6.4|^7.0|^8.0",
-                "symfony/ux-twig-component": "^2.21",
-                "symfony/web-profiler-bundle": "^5.4|^6.0|^7.0|^8.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/ux",
-                    "name": "symfony/ux"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\UX\\Turbo\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kévin Dunglas",
-                    "email": "kevin@dunglas.fr"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Hotwire Turbo integration for Symfony",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "hotwire",
-                "javascript",
-                "mercure",
-                "symfony-ux",
-                "turbo",
-                "turbo-stream"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/ux-turbo/tree/v2.31.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2025-10-16T07:24:06+00:00"
         },
         {
             "name": "symfony/validator",

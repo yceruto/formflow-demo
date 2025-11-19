@@ -4,7 +4,6 @@ namespace App\Demo\Settings\Controller;
 
 use App\Demo\Settings\Form\Type\SettingsType;
 use App\Demo\Settings\Repository\AccountRepositoryInterface;
-use App\Turbo\Controller\TurboFlowTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Flow\FormFlowInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,8 +13,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class SettingsController extends AbstractController
 {
-    use TurboFlowTrait;
-
     public function __construct(
         private readonly AccountRepositoryInterface $repository,
     ) {
@@ -39,7 +36,7 @@ class SettingsController extends AbstractController
         }
 
         return $this->render('demo/settings/form.html.twig', [
-            'form' => $form,
+            'form' => $form->getStepForm(),
         ]);
     }
 }

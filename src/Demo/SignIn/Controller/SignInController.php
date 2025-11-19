@@ -4,7 +4,6 @@ namespace App\Demo\SignIn\Controller;
 
 use App\Demo\SignIn\Form\Data\SignInDto;
 use App\Demo\SignIn\Form\Type\SignInType;
-use App\Turbo\Controller\TurboFlowTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Flow\FormFlowInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,8 +12,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class SignInController extends AbstractController
 {
-    use TurboFlowTrait;
-
     #[Route('/demo/signin', name: 'app_demo_signin')]
     public function __invoke(Request $request): Response
     {
@@ -31,7 +28,7 @@ class SignInController extends AbstractController
         }
 
         return $this->render('demo/signin.html.twig', [
-            'form' => $flow,
+            'form' => $flow->getStepForm(),
         ]);
     }
 }

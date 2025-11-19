@@ -21,7 +21,6 @@
         "symfony/runtime": "7.4.*",
         "symfony/security-bundle": "7.4.*",
         "symfony/twig-bundle": "7.4.*",
-        "symfony/ux-turbo": "^2.31",
         "symfony/validator": "7.4.*",
         "symfony/yaml": "7.4.*",
         "twig/extra-bundle": "^2.12|^3.21",

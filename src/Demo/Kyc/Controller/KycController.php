@@ -6,7 +6,6 @@ namespace App\Demo\Kyc\Controller;
 
 use App\Demo\Kyc\Form\Data\KycDto;
 use App\Demo\Kyc\Form\Type\KycType;
-use App\Turbo\Controller\TurboFlowTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Flow\FormFlowInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,8 +14,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class KycController extends AbstractController
 {
-    use TurboFlowTrait;
-
     #[Route('/demo/kyc', name: 'app_demo_kyc')]
     public function __invoke(Request $request): Response
     {
@@ -36,7 +33,7 @@ class KycController extends AbstractController
         }
 
         return $this->render('demo/kyc/flow.html.twig', [
-            'form' => $flow,
+            'form' => $flow->getStepForm(),
         ]);
     }
 }

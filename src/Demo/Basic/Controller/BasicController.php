@@ -4,7 +4,6 @@ namespace App\Demo\Basic\Controller;
 
 use App\Demo\Basic\Form\Data\BasicDto;
 use App\Demo\Basic\Form\Type\BasicType;
-use App\Turbo\Controller\TurboFlowTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Flow\FormFlowInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,8 +12,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BasicController extends AbstractController
 {
-    use TurboFlowTrait;
-
     #[Route('/demo/basic', name: 'app_demo_basic')]
     public function __invoke(Request $request): Response
     {
@@ -31,7 +28,7 @@ class BasicController extends AbstractController
         }
 
         return $this->render('demo/basic.html.twig', [
-            'form' => $flow,
+            'form' => $flow->getStepForm(),
         ]);
     }
 }
