@@ -1,0 +1,43 @@
+<div class="d-flex flex-column h-100">
+    <div class="flex-grow-1">
+        <h2 class="card-title pb-3">Book a Flight</h2>
+        <nav aria-label="Progress">
+            <div class="d-flex align-items-start">
+                {% for step in form.vars.visible_steps %}
+                    <div class="text-center" style="min-width: 2rem">
+                        {% if step.is_current_step or step.has_current_step_descendant %}
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-circle border border-2 border-dark bg-white" style="width: 2rem; height: 2rem">
+                                <span class="rounded-circle bg-dark" style="width: 0.5rem; height: 0.5rem"></span>
+                            </span>
+                            <div class="small mt-1 fw-semibold">{{ step.name }}</div>
+                            {% if step.children|length > 0 %}
+                                <div class="row gap-2 mt-2 align-items-center justify-content-center">
+                                    {% for child in step.visible_children %}
+                                        <span class="rounded {{ child.is_after_current_step ? 'bg-secondary-subtle' : 'bg-dark' }}" style="width: 0.5rem; height: 0.3rem"></span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% elseif step.is_before_current_step %}
+                            <!-- Completed Step -->
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-circle bg-dark text-white" style="width: 2rem; height: 2rem">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+                                </svg>
+                            </span>
+                            <div class="small mt-1 text-muted">{{ step.name }}</div>
+                        {% else %}
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-circle border border-2 border-secondary-subtle bg-white p-0" style="width: 2rem; height: 2rem"></span>
+                            <div class="small text-muted" style="margin-top: -2px">{{ step.name }}</div>
+                        {% endif %}
+                    </div>
+
+                    {% if not loop.last %}
+                        <div class="flex-grow-1 mx-2" style="height: 2px; margin-top: 1rem">
+                            <div class="h-100 bg-dark" style="border-radius: 1px"></div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </nav>
+    </div>
+</div>
