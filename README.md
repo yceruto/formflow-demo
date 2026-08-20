@@ -1,3 +1,5 @@
+
+
 # Symfony FormFlow Demo
 
 ![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
@@ -23,6 +25,8 @@
 * **Settings Interface**: A tab-based form interface where users can freely navigate between sections without following a specific order, featuring tab-based navigation, non-linear form completion, custom form theme, form validation, custom step accessor, and null data storage.
 
 * **Color picker**: An interactive form flow where users select a color and, based on their choice, are guided to pick a matching darker or lighter gradient, featuring dependent choices across steps, dynamic step content, form validation, and session data storage.
+
+* **Book Flight**: A step-by-step flight booking form flow available at `/demo/book-flight`.
 
 **Enjoy!**
 
